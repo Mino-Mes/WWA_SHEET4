@@ -10,17 +10,18 @@
 {
     <div class="order-form-lists">
         <div class="order-form-list">
-            <p>Select a Sandwich</p>
+            <h3>Select a Sandwich</h3>
             @Html.ListBoxFor(m => m.subName_, new SelectList(Enum.GetValues(typeof(WWA_SHEET4.Models.subName))))
         </div>
         <br />
         <div class="order-form-list">
+        <h3>Select a Size</h3>
             @Html.ListBoxFor(m => m.sizeName_, new SelectList(Enum.GetValues(typeof(WWA_SHEET4.Models.sizeName))))
         </div>
     </div>
 
     <div class="order-form-button-group">
-        <p>Select a Meal Deal</p>
+        <h3>Select a Meal Deal</h3>
         <div class="order-form-radiobuttons">
             @Html.RadioButtonFor(m => m.mealDealName_, WWA_SHEET4.Models.mealDealName.None) @("None") <br />
             @Html.RadioButtonFor(m => m.mealDealName_, WWA_SHEET4.Models.mealDealName.DrinksAndChips) @("Drink and Chips") <br />
