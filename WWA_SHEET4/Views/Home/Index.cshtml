@@ -1,0 +1,31 @@
+﻿@model WWA_SHEET4.Models.Sandwich
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Welcome to StarSubs</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="order-form-lists">
+        <div class="order-form-list">
+            <p>Select a Sandwich</p>
+            @Html.ListBoxFor(m => m.subName_, new SelectList(Enum.GetValues(typeof(WWA_SHEET4.Models.subName))))
+        </div>
+        <br />
+        <div class="order-form-list">
+            @Html.ListBoxFor(m => m.sizeName_, new SelectList(Enum.GetValues(typeof(WWA_SHEET4.Models.sizeName))))
+        </div>
+    </div>
+
+    <div class="order-form-button-group">
+        <p>Select a Meal Deal</p>
+        <div class="order-form-radiobuttons">
+            @Html.RadioButtonFor(m => m.mealDealName_, WWA_SHEET4.Models.mealDealName.None) @("None") <br />
+            @Html.RadioButtonFor(m => m.mealDealName_, WWA_SHEET4.Models.mealDealName.DrinksAndChips) @("Drink and Chips") <br />
+            @Html.RadioButtonFor(m => m.mealDealName_, WWA_SHEET4.Models.mealDealName.DrinksandCookies) @("Drink and Cookies")
+        </div>
+    </div>
+   <input  type="submit" value="Place Order" class="order-form-submit"/>
+}
