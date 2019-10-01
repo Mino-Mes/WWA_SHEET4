@@ -31,8 +31,10 @@ namespace WWA_SHEET4.Controllers
             String dealName = Enum.GetName(typeof(mealDealName), newOrder.mealDealName_);
             var priceOfDeal = mealDeals[(int)newOrder.mealDealName_];
 
-            double total = priceOfSub * priceOfSize + priceOfDeal;
-            double tax = total * .15;
+            int quantity = newOrder.quantity;
+
+            double total = Math.Round(((priceOfSub *quantity) * priceOfSize + priceOfDeal),2);
+            double tax = Math.Round(total * .15,2);
             double finalTotal = tax + total;
             ViewBag.Tax = Math.Round(tax,2);
             ViewBag.Cost =Math.Round(total,2);
@@ -43,9 +45,24 @@ namespace WWA_SHEET4.Controllers
             ViewBag.Deal = dealName;
             ViewBag.PriceDeal =Math.Round(priceOfDeal,2);
             ViewBag.FinalTotal =Math.Round(finalTotal,2);
+            ViewBag.quantity = quantity;
 
+            // session
+            Report report = new Report(tax, total, subName, sizeName, dealName);
+            Report.reportList.Add(report);
+
+            
 
             return View("Receipt");
+        }
+
+        public ActionResult DailyTotal()
+        {
+            Report report = new Report();
+
+            ViewBag.DailyTotal =Math.Round(report.getDailyTotal(),2);
+            ViewBag.DailyTax = Math.Round(report.getTax(),2);
+            return View(Report.reportList);
         }
 
 

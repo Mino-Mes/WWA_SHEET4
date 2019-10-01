@@ -1,0 +1,25 @@
+﻿@using  WWA_SHEET4.Models
+@{
+    ViewBag.Title = "DailyTotal";
+}
+
+<h2>Orders of Day</h2>
+
+ @foreach (var x in WWA_SHEET4.Models.Report.reportList)
+{
+    <ul>
+        <li>Sub Name : @x.subType</li>
+        <li>Sub Size : @x.subSize</li>
+        <li>Meal Deal: @x.mealDeal</li>
+        <li>Tax : $@x.tax</li>
+        <li>Total : $@x.cost</li>
+    </ul>
+
+}
+
+<h3>Total of Day: $@ViewBag.DailyTotal </h3>
+<h3>Total Tax: $ @ViewBag.DailyTax </h3>
+
+@Html.ActionLink("Go Back", "Index", "Home")
+
+

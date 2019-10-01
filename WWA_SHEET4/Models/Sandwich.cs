@@ -10,6 +10,7 @@ namespace WWA_SHEET4.Models
         public subName subName_ { get; set; }
         public sizeName sizeName_ { get; set; }
         public mealDealName mealDealName_ { get; set; }
+        public int quantity { get; set; } = 1;
     }
     public enum subName
     {

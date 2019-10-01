@@ -20,6 +20,10 @@
         </div>
     </div>
 
+    <h3>Quantity</h3>
+        @Html.TextBoxFor(n => n.quantity, new { @class = "textbox", type = "number" });
+
+
     <div class="order-form-button-group">
         <h3>Select a Meal Deal</h3>
         <div class="order-form-radiobuttons">
@@ -30,3 +34,7 @@
     </div>
    <input  type="submit" value="Place Order" class="order-form-submit"/>
 }
+    @using (Html.BeginForm("DailyTotal", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Go to Report Page" />
+    }
