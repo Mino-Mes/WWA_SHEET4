@@ -34,15 +34,15 @@ namespace WWA_SHEET4.Controllers
             double total = priceOfSub * priceOfSize + priceOfDeal;
             double tax = total * .15;
             double finalTotal = tax + total;
-            ViewBag.Tax = tax;
-            ViewBag.Cost = total;
+            ViewBag.Tax = Math.Round(tax,2);
+            ViewBag.Cost =Math.Round(total,2);
             ViewBag.Sub = subName;
-            ViewBag.PriceSub = priceOfSub;
+            ViewBag.PriceSub = Math.Round(priceOfSub,2);
             ViewBag.Size = sizeName;
-            ViewBag.PriceSize = priceOfSize;
+            ViewBag.PriceSize = Math.Round(priceOfSize,2);
             ViewBag.Deal = dealName;
-            ViewBag.PriceDeal = priceOfDeal;
-            ViewBag.FinalTotal = finalTotal;
+            ViewBag.PriceDeal =Math.Round(priceOfDeal,2);
+            ViewBag.FinalTotal =Math.Round(finalTotal,2);
 
 
             return View("Receipt");
